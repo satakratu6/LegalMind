@@ -22,8 +22,17 @@ const app = express();
 
 app.use(express.json({ limit: '10mb' }));
 
+// Support multiple origins (comma-separated)
 app.use(cors({
-  origin: CORS_ORIGIN,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    const allowed = CORS_ORIGIN.split(',').map(o => o.trim());
+    if (allowed.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 

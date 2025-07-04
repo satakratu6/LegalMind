@@ -1,5 +1,5 @@
-// Use Vite env variable for API base URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// Use Vite env variable for API base URL, ensure no trailing slash
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, "");
 import { useState } from "react";
 import { Container, Box, Typography, Paper } from "@mui/material";
 import ConsultationForm from "./ConsultationForm";

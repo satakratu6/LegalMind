@@ -9,7 +9,20 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+// Support multiple origins from env
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:5173';
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    const allowed = CORS_ORIGIN.split(',').map(o => o.trim());
+    if (allowed.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
