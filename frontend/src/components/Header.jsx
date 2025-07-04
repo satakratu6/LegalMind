@@ -2,7 +2,6 @@ import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import UserProfile from "./UserProfile";
 // Import the new SVG logo
 import Logo from "/public/fu6cDy01.svg";
-import UserProfile from "./UserProfile";
 
 function Header({ user, onLogout, onViewHistory }) {
   return (
