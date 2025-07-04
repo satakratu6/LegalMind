@@ -1,7 +1,5 @@
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import UserProfile from "./UserProfile";
-// Import the new SVG logo
-import Logo from "/public/fu6cDy01.svg";
 
 function Header({ user, onLogout, onViewHistory }) {
   return (
@@ -10,7 +8,11 @@ function Header({ user, onLogout, onViewHistory }) {
         <Box
           sx={{ display: "flex", alignItems: "center", gap: 1, flexGrow: 1 }}
         >
-          <img src={Logo} alt="Logo" style={{ height: 32, width: 32 }} />
+          <img
+            src="/fu6cDy01.svg"
+            alt="Logo"
+            style={{ height: 32, width: 32 }}
+          />
           <Typography
             variant="h6"
             component="div"
