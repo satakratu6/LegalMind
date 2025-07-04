@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// Use Vite env variable for API base URL
-const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/api/profile`;
+// Use Vite env variable for Profile API base URL
+const PROFILE_API_BASE_URL = import.meta.env.VITE_PROFILE_API_BASE_URL;
 import {
   Box,
   Typography,
@@ -66,7 +66,7 @@ const ProfileHistory = ({ user, onBackToConsultation }) => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/history/${encodeURIComponent(
+        `${PROFILE_API_BASE_URL}/api/profile/history/${encodeURIComponent(
           user.email
         )}?page=${page}&limit=5`
       );
@@ -89,7 +89,7 @@ const ProfileHistory = ({ user, onBackToConsultation }) => {
   const deleteConsultation = async (consultationId) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/history/${consultationId}?userId=${encodeURIComponent(
+        `${PROFILE_API_BASE_URL}/api/profile/history/${consultationId}?userId=${encodeURIComponent(
           user.email
         )}`,
         {
@@ -122,7 +122,9 @@ const ProfileHistory = ({ user, onBackToConsultation }) => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/history/clear/${encodeURIComponent(user.email)}`,
+        `${PROFILE_API_BASE_URL}/api/profile/history/clear/${encodeURIComponent(
+          user.email
+        )}`,
         {
           method: "DELETE",
         }
