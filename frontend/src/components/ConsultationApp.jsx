@@ -1,5 +1,6 @@
 // Use Vite env variable for API base URL, ensure no trailing slash
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, "");
+const PROFILE_API_BASE_URL = import.meta.env.VITE_PROFILE_API_BASE_URL?.replace(/\/+$/, "");
 import { useState } from "react";
 import { Container, Box, Typography, Paper } from "@mui/material";
 import ConsultationForm from "./ConsultationForm";
@@ -41,7 +42,7 @@ function ConsultationApp({ user }) {
         response: responseData,
       };
 
-      const res = await fetch(`${API_BASE_URL}/api/profile/save-consultation`, {
+      const res = await fetch(`${PROFILE_API_BASE_URL}/api/profile/save-consultation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
