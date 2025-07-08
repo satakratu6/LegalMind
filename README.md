@@ -14,7 +14,7 @@ A comprehensive AI-powered legal consultation platform built with the MERN stack
 - **Real-time Processing**: Fast and efficient AI response generation
 ## 🚀 Live Demo
 
-Check out the live app here: [NeighborFit Deployment](https://legal-mind-two.vercel.app/)
+Check out the live app here: [LegalMind Deployment](https://legal-mind-two.vercel.app/)
 ## 🛠️ Tech Stack
 
 ### Backend
